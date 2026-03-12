@@ -24,7 +24,7 @@ public class LoginPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    private By burgerMenuButtonNative = By.xpath("android.widget.Button");
+    private By burgerMenuButtonNative = By.className("android.widget.Button");
     private By burgerMenuButtonWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[1]/button/svg");
 
     private By signInButtonNative = By.xpath("//android.widget.Button[@content-desc='Login / Sign Up']");
