@@ -25,15 +25,15 @@ public class LoginPage {
     }
 
     private By burgerMenuButtonNative = By.className("android.widget.Button");
-    private By burgerMenuButtonWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[1]/button/svg");
+    private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
 
     private By signInButtonNative = By.xpath("//android.widget.Button[@content-desc='Login / Sign Up']");
     private By signInButtonWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/button/span[2]");
 
-    private By emailFieldNative = By.xpath("//android.widget.EditText[@hint='Email']");
+    private By emailFieldNative = By.xpath("(//android.widget.EditText)[1]");
     private By emailFieldWeb = By.id("login-email");
 
-    private By passwordFieldNative = By.xpath("//android.widget.EditText[@hint='Password']");
+    private By passwordFieldNative = By.xpath("(//android.widget.EditText)[2]");
     private By passwordFieldWeb = By.id("login-password");
 
     private By loginButtonNative = By.xpath("//android.widget.Button[@content-desc='Login']");
