@@ -12,6 +12,8 @@ target/
 *.iml
 *.ipr
 .idea/
+.ai-code-tracking.json
+
 ### Eclipse ###
 .apt_generated
 .classpath
