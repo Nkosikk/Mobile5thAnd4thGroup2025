@@ -1,7 +1,6 @@
 package Base;
 
 import Pages.LoginPage;
-import Tests.LoginTest;
 import Utilities.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 
