@@ -20,12 +20,14 @@ public class DriverFactory {
         //These are the capabilities that are common for both mobile web and native app testing. We set them up based on the values in the config.properties file.
         UiAutomator2Options options = new UiAutomator2Options()
                 .setAutomationName(config.getProperty("automationName"))
-                .setPlatformName(config.getProperty("platformName"));
+                .setPlatformName(config.getProperty("platformName"))
+                .setNoReset(Boolean.parseBoolean(config.getProperty("noReset")));
 
         //if execution type is mobile web, we set the browser name capability.
         if (execType.equalsIgnoreCase("mobileWeb")) {
             //setting the browser to launch
             options.withBrowserName(config.getProperty("browserName"));
+            options.chromedriverDisableBuildCheck();
         }
         //if execution type is native app, we will install and launch the app on the device or emulator.
         else if (execType.equalsIgnoreCase("nativeApp")) {

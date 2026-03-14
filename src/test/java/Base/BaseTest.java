@@ -8,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static Base.AppiumServerManager.startAppiumServer;
+
 public class BaseTest {
 
     //The reason we use protected in BaseTest is about visibility and inheritance.
@@ -19,6 +21,7 @@ public class BaseTest {
     protected LoginPage loginPage;
 
     public void setUp() throws IOException {
+//        startAppiumServer();
         //loading the config.properties file to read the configuration values for the test execution.
         config = new Properties();
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/configs/config.properties");
