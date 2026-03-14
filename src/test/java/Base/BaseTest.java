@@ -21,7 +21,7 @@ public class BaseTest {
     protected LoginPage loginPage;
 
     public void setUp() throws IOException {
-//        startAppiumServer();
+        startAppiumServer();
         //loading the config.properties file to read the configuration values for the test execution.
         config = new Properties();
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/configs/config.properties");
