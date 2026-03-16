@@ -21,11 +21,14 @@ public class DriverFactory {
         UiAutomator2Options options = new UiAutomator2Options()
                 .setAutomationName(config.getProperty("automationName"))
                 .setPlatformName(config.getProperty("platformName"));
+        options.setCapability("appium:deviceName", "Android Emulator");
 
         //if execution type is mobile web, we set the browser name capability.
         if (execType.equalsIgnoreCase("mobileWeb")) {
             //setting the browser to launch
             options.withBrowserName(config.getProperty("browserName"));
+            // FIX: automatically download correct chromedriver
+            options.setCapability("appium:chromedriverAutodownload", true);
         }
         //if execution type is native app, we will install and launch the app on the device or emulator.
         else if (execType.equalsIgnoreCase("nativeApp")) {
