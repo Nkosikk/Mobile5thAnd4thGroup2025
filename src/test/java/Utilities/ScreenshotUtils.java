@@ -1,8 +1,10 @@
 package Utilities;
 
+import Base.BaseTest;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
 
 import java.io.File;
 import java.nio.file.Files;
