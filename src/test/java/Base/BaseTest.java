@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.LoginPage;
 import Utilities.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 
@@ -15,6 +16,7 @@ public class BaseTest {
     // This allows any test class that extends BaseTest to access the driver and config without needing to create new instances or pass them around.
     protected AppiumDriver driver;
     protected Properties config;
+    protected LoginPage loginPage;
 
     public void setUp() throws IOException {
         //loading the config.properties file to read the configuration values for the test execution.
@@ -25,6 +27,9 @@ public class BaseTest {
         //initializing the Appium driver using the DriverFactory class and also getting the driver instance to be used in the tests.
         DriverFactory.initDriver(config);
         driver = DriverFactory.getDriver();
+
+        //Initialise the LoginPage object here if you want to use it in the tests.
+        loginPage = new LoginPage(driver,config);
     }
 
     //This method is responsible for cleaning up after the test execution. It quits the driver session.
