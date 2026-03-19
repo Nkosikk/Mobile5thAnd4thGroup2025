@@ -2,6 +2,7 @@ package Utilities;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.options.XCUITestOptions;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -12,39 +13,68 @@ public class DriverFactory {
     static AppiumDriver driver;
 
     public static void initDriver(Properties config) throws MalformedURLException {
+
         if (driver != null) return;
 
-        //The type of execution you want to run: mobileWeb or nativeApp
-        String execType = config.getProperty("executionType").trim();
+        String platformName = config.getProperty("platformName").trim();
+        String executionType = config.getProperty("executionType").trim();
+        String appiumUrl = config.getProperty("appiumServer").trim();
 
-        //These are the capabilities that are common for both mobile web and native app testing. We set them up based on the values in the config.properties file.
+        if (platformName.equalsIgnoreCase("Android")) {
+            try {
+                initAndroidDriver(config, executionType, appiumUrl);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException("Invalid Appium server URL: " + appiumUrl, e);
+            }
+        } else if (platformName.equalsIgnoreCase("iOS")) {
+            initIOSDriver(config, executionType, appiumUrl);
+        } else {
+            throw new RuntimeException("Unsupported platformName: " + platformName);
+        }
+
+    }
+
+    private static void initAndroidDriver(Properties config, String executionType, String appiumUrl) throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options()
                 .setAutomationName(config.getProperty("automationName"))
                 .setPlatformName(config.getProperty("platformName"));
 
-        //if execution type is mobile web, we set the browser name capability.
-        if (execType.equalsIgnoreCase("mobileWeb")) {
-            //setting the browser to launch
+        if (executionType.equalsIgnoreCase("mobileWeb")) {
             options.withBrowserName(config.getProperty("browserName"));
-        }
-        //if execution type is native app, we will install and launch the app on the device or emulator.
-        else if (execType.equalsIgnoreCase("nativeApp")) {
-            //we set the app path capability.
-            String appPath = System.getProperty("user.dir") + config.getProperty("appPath");
+        }else if(executionType.equalsIgnoreCase("nativeApp")) {
+            String appPath = System.getProperty("user.dir") + "/" + config.getProperty("appPath");
             options.setApp(appPath);
+        } else {
+            throw new RuntimeException("Unsupported executionType for Android: " + executionType);
+        }
+        driver = new AppiumDriver(URI.create(appiumUrl).toURL(), options);
+        if (executionType.equalsIgnoreCase("mobileWeb")) {
+            String webUrl = config.getProperty("webUrl");
+            driver.get(webUrl);
         }
 
-        //the driver must now start the Appium Session using the Appium server URL and the capabilities we defined in the options object.
-        driver = new AppiumDriver(
-                URI.create(config.getProperty("appiumServer")).toURL(),
-                options
-        );
+    }
+    private static void initIOSDriver(Properties config, String executionType, String appiumUrl) throws MalformedURLException {
+        XCUITestOptions options = new XCUITestOptions()
+                .setAutomationName(config.getProperty("automationName"))
+                .setPlatformName(config.getProperty("platformName"));
 
-        if (execType.equalsIgnoreCase("mobileWeb")) {
+        if (executionType.equalsIgnoreCase("mobileWeb")) {
+            options.withBrowserName(config.getProperty("browserName"));
+        } else if (executionType.equalsIgnoreCase("nativeApp")) {
+            String appPath = System.getProperty("user.dir") + "/" + config.getProperty("appPath");
+            options.setApp(appPath);
+        } else {
+            throw new RuntimeException("Unsupported executionType for iOS: " + executionType);
+        }
+        driver = new AppiumDriver(URI.create(appiumUrl).toURL(), options);
+        if (executionType.equalsIgnoreCase("mobileWeb")) {
             String webUrl = config.getProperty("webUrl");
             driver.get(webUrl);
         }
     }
+
+
 
     public static AppiumDriver getDriver() {
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="Listener.TestListener">
+
+        </listener>
+    </listeners>
+    <test name="Ndosi Login Test">
+        <classes>
+            <class name="Tests.LoginTest">
+                <methods>
+                    <include name="SetUp"/>
+                    <include name="LoginWithValidCredentials"/>
+                    <include name="quitDriver"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
