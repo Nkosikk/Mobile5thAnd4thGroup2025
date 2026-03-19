@@ -72,6 +72,7 @@ public class LoginPage {
     }
 
     public void clickLoginButton() {
+
         getElement(loginButtonNative, loginButtonWeb).click();
     }
 
