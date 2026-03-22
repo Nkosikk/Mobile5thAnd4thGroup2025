@@ -139,6 +139,7 @@ mvn clean install -DskipTests
 
 ```bash
 appium
+appium --allow-insecure=uiautomator2:chromedriver_autodownload
 ```
 
 The server will start at `http://127.0.0.1:4723` by default.
