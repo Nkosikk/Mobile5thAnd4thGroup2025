@@ -1,5 +1,4 @@
 package Pages;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
@@ -7,9 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.Properties;
+
+
 
 public class LoginPage {
 
@@ -62,19 +62,35 @@ public class LoginPage {
     public void enterEmail(String email) {
         WebElement emailField = getElement(emailFieldNative, emailFieldWeb);
         emailField.click();
+        emailField.clear();          // clear before typing
         emailField.sendKeys(email);
+
+        // Read the value back and print it
+        String enteredEmail = emailField.getAttribute("text"); // or "value" for web
+        if (enteredEmail == null) enteredEmail = emailField.getAttribute("value");
+        System.out.println("Email entered: " + enteredEmail);
     }
 
     public void enterPassword(String password) {
         WebElement passwordField = getElement(passwordFieldNative, passwordFieldWeb);
         passwordField.click();
+        passwordField.clear();        // clear before typing
         passwordField.sendKeys(password);
+
+        // Read the value back and print it
+        String enteredPassword = passwordField.getAttribute("text"); // or "value" for web
+        if (enteredPassword == null) enteredPassword = passwordField.getAttribute("value");
+        System.out.println("Password entered: " + enteredPassword);
     }
 
     public void clickLoginButton() {
-        getElement(loginButtonNative, loginButtonWeb).click();
-    }
+    getElement(loginButtonNative, loginButtonWeb).click();
+     }
 
 }
+
+
+
+
 
 
