@@ -24,11 +24,9 @@ public class AdminDashboard {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-//    private By burgerMenuButtonNative = By.className("android.widget.Button");
-//    private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
 
-    private By adminMenubuttonNatvie = By.xpath("//android.widget.Button");
-    private By adminMenubuttonWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[1]/button/svg");
+    private By adminMenuButtonNative = By.xpath("//android.widget.Button");
+    private By adminMenuButtonWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[1]/button/svg");
 
     private By adminPanelButtonNative = By.xpath("//android.widget.Button[@content-desc=\"Admin Panel\"]");
     private By adminPanelButtonWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[2]/div[5]/button[6]/span[2]");
@@ -53,7 +51,7 @@ public class AdminDashboard {
     private By courseLevelDropdownWeb = By.xpath("//*[@id=\"app-root\"]/div/div[3]/div/div[3]/div/form/div[3]/div[2]/select");
 
     private By courseLevelOptionNative = By.xpath("//android.widget.Button[@content-desc=\"Intermediate\"]");
-    private By cousreLevelOptionWeb = By.xpath("//*[@id=\"app-root\"]/div/div[3]/div/div[3]/div/form/div[3]/div[2]/select/option[2]");
+    private By courseLevelOptionWeb = By.xpath("//*[@id=\"app-root\"]/div/div[3]/div/div[3]/div/form/div[3]/div[2]/select/option[2]");
 
     private By coursePriceFieldNative = By.xpath("//android.widget.EditText[@text=\"0\"]");
     private By coursePriceFieldWeb = By.xpath("//*[@id=\"app-root\"]/div/div[3]/div/div[3]/div/form/div[4]/div[1]/input");
@@ -76,7 +74,7 @@ public class AdminDashboard {
     }
 
     public void clickAdminMenuButton() {
-        getElement(adminMenubuttonNatvie, adminMenubuttonWeb).click();
+        getElement(adminMenuButtonNative, adminMenuButtonWeb).click();
     }
 
     public void clickAdminPanelButton() {
@@ -105,23 +103,28 @@ public class AdminDashboard {
 
     public void enterCourseDuration(String duration) {
         WebElement durationField = getElement(courseDurationFieldNative, courseDurationFieldWeb);
-                durationField.clear();
+        durationField.clear();
         durationField.sendKeys(duration);
     }
+
     public void clickClickCourseLevelDropdown() {
         getElement(courseLevelDropdownNative, courseLevelDropdownWeb).click();
     }
+
     public void selectCourseLevelOption() {
-        getElement(courseLevelOptionNative, cousreLevelOptionWeb).click();
+        getElement(courseLevelOptionNative, courseLevelOptionWeb).click();
     }
+
     public void enterCoursePriceField(String price) {
         WebElement priceField = getElement(coursePriceFieldNative, coursePriceFieldWeb);
         priceField.clear();
         priceField.sendKeys(price);
     }
+
     public void clickCreateCourseButton() {
         getElement(createCourseButtonNative, createCourseButtonWeb).click();
     }
+
     public void clickLogOutButton() {
         getElement(logOutButtonNative, logOutButtonWeb).click();
     }
