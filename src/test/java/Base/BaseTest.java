@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.AdminDashboard;
 import Pages.LoginPage;
 import Utilities.DriverFactory;
 import io.appium.java_client.AppiumDriver;
@@ -17,6 +18,7 @@ public class BaseTest {
     protected AppiumDriver driver;
     protected Properties config;
     protected LoginPage loginPage;
+    protected AdminDashboard adminDashboard;
 
     public void setUp() throws IOException {
         //loading the config.properties file to read the configuration values for the test execution.
@@ -30,6 +32,7 @@ public class BaseTest {
 
         //Initialise the LoginPage object here if you want to use it in the tests.
         loginPage = new LoginPage(driver,config);
+        adminDashboard = new AdminDashboard(driver, config);
     }
 
     //This method is responsible for cleaning up after the test execution. It quits the driver session.
