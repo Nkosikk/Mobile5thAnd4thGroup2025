@@ -30,10 +30,34 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "LoginWithValidCredentials")
+    public void createANewCourse(){
+        adminDashboard.clickAdminMenuButton();
+        adminDashboard.clickAdminPanelButton();
+        adminDashboard.openAdminOptionsMenu();
+        adminDashboard.clickManageCourseButton();
+        adminDashboard.clickCreateNewCourseButton();
+        adminDashboard.enterCourseTitle(config.getProperty("title"));
+        adminDashboard.enterCourseDescription(config.getProperty("description"));
+        adminDashboard.enterCourseDuration(config.getProperty("duration"));
+        adminDashboard.clickCourseLevelDropdown();
+        adminDashboard.selectCourseLevelOption();
+        adminDashboard.enterCoursePriceField(config.getProperty("price"));
+        adminDashboard.clickCreateCourseButton();
+        adminDashboard.openAdminOptionsMenu();
+        adminDashboard.clickLogOutButton();
+    }
+
+    @Test(dependsOnMethods = "createANewCourse")
     public void quitDriver() {
         //This method is responsible for cleaning up after the test execution. It quits the driver session.
         super.tearDown();
     }
+
+//    @Test(dependsOnMethods = "LoginWithValidCredentials")
+//    public void quitDriver() {
+//        //This method is responsible for cleaning up after the test execution. It quits the driver session.
+//        super.tearDown();
+//    }
 
 
 }
