@@ -62,10 +62,10 @@ public class AdminPage {
     public void clickAdminPanelOption() {
         getElement(adminPanelOptionNative, adminPanelOptionWeb).click();
     }
-    public void setAdminDashboardTitle() {
+    public void getWelcomeMessageNative() {
         getElement(adminDashboardTitleNative, adminDashboardTitleWeb).isDisplayed();
     }
-    public void setAdminPanelTitle() {
+    public void getAdminPanelTitle() {
         getElement(adminPanelTitleNative, adminPanelTitleWeb).isDisplayed();
     }
     public void clickCoursesButton() {

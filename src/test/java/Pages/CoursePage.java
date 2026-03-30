@@ -33,14 +33,17 @@ public class CoursePage {
     private By durationInputNative = By.xpath("//android.widget.EditText[@hint='Duration']");
     private By durationInputWeb = By.xpath("//*[@id='course-duration']");
 
+    private By levelDropdownNative = By.xpath("//android.widget.Button[contains(@content-desc,'Level')]");
+    private By levelDropdownWeb = By.xpath("//*[@id='course-level']");
+
     private By priceInputNative = By.xpath("//android.widget.EditText[@hint='Price (R)']");
     private By priceInputWeb = By.xpath("//*[@id='course-price']");
 
-    private By thumbnailUrlInputNative = By.xpath("//android.widget.EditText[@hint='Thumbnail URL (optional)']");
+    /*private By thumbnailUrlInputNative = By.xpath("//android.widget.EditText[@hint='Thumbnail URL (optional)']");
     private By thumbnailUrlInputWeb = By.xpath("//*[@id='course-thumbnail']");
 
     private By meetingUrlInputNative = By.xpath("//android.widget.EditText[@hint='Meeting URL (optional)']");
-    private By meetingUrlInputWeb = By.xpath("//*[@id='course-meeting-url']");
+    private By meetingUrlInputWeb = By.xpath("//*[@id='course-meeting-url']");*/
 
     private By publishedCheckboxNative = By.className("android.widget.CheckBox");
     private By publishedCheckboxWeb = By.xpath("//*[@id='course-published']");
@@ -48,8 +51,8 @@ public class CoursePage {
     private By createCourseButtonNative = By.xpath("//android.widget.Button[@content-desc='Create Course']");
     private By createCourseButtonWeb = By.xpath("//*[@id='course-create']");
 
-    private By cancelButtonNative = By.xpath("//android.widget.Button[@content-desc='Cancel']");
-    private By cancelButtonWeb = By.xpath("//*[@id='course-cancel']");
+    /*private By cancelButtonNative = By.xpath("//android.widget.Button[@content-desc='Cancel']");
+    private By cancelButtonWeb = By.xpath("//*[@id='course-cancel']");*/
 
      // Implement methods to interact with the course page elements here
 
@@ -85,12 +88,16 @@ public class CoursePage {
         durationInput.click();
         durationInput.sendKeys(duration);
     }
+    public void selectLevel(String level) {
+        WebElement levelDropdown = getElement(levelDropdownNative, levelDropdownWeb);
+        levelDropdown.click();
+    }
     public void enterPrice(String price) {
         WebElement priceInput = getElement(priceInputNative, priceInputWeb);
         priceInput.click();
         priceInput.sendKeys(price);
     }
-    public void enterThumbnailUrl(String thumbnailUrl) {
+    /*public void enterThumbnailUrl(String thumbnailUrl) {
         WebElement thumbnailUrlInput = getElement(thumbnailUrlInputNative, thumbnailUrlInputWeb);
         thumbnailUrlInput.click();
         thumbnailUrlInput.sendKeys(thumbnailUrl);
@@ -99,7 +106,7 @@ public class CoursePage {
         WebElement meetingUrlInput = getElement(meetingUrlInputNative, meetingUrlInputWeb);
         meetingUrlInput.click();
         meetingUrlInput.sendKeys(meetingUrl);
-    }
+    }*/
     public void setPublishedCheckbox(boolean isChecked) {
         WebElement publishedCheckbox = getElement(publishedCheckboxNative, publishedCheckboxWeb);
         if (publishedCheckbox.isSelected() != isChecked) {
@@ -111,7 +118,7 @@ public class CoursePage {
     public void clickCreateCourseButton() {
         getElement(createCourseButtonNative, createCourseButtonWeb).click();
     }
-    public void clickCancelButton() {
+    /*public void clickCancelButton() {
         getElement(cancelButtonNative, cancelButtonWeb).click();
-    }
+    }*/
 }

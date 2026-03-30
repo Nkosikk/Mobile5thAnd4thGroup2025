@@ -26,8 +26,14 @@ public class ManageCoursePage {
     private By manageCoursesTitleNative = By.xpath("//android.view.View[@content-desc='Manage Courses']");
     private By manageCoursesTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
-    private By testerAnalystCourseCardNative = By.xpath("//android.view.View[contains(@content-desc,'Tester Analyst Course')]");
-    private By testerAnalystCourseCardWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]");
+    private By selectCourseByNameNative = By.xpath("//android.view.View[contains(@content-desc,'Tester Analyst Course')]");
+    private By selectCourseByNameWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]");
+
+    private By editCourseNative = By.xpath("(//android.widget.Button[@content-desc='Edit'])[1]");
+    private By editCourseWeb = By.xpath("(//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]//button)[1]");
+
+    private By saveCourseButtonNative = By.xpath("//android.widget.Button[@content-desc='Save Changes']");
+    private By saveCourseButtonWeb = By.xpath("//*[@id='course-save']");
 
     private By burgerMenuButtonNative = By.className("android.widget.Button");
     private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
@@ -51,10 +57,19 @@ public class ManageCoursePage {
     public void getManageCoursesTitle() {
         getElement(manageCoursesTitleNative, manageCoursesTitleWeb).isDisplayed();
     }
-    public void verifyTesterAnalystCourseCard() {
-        getElement(testerAnalystCourseCardNative, testerAnalystCourseCardWeb).isDisplayed();
+    public void verifyCourseDetails() {
+        getElement(selectCourseByNameNative, selectCourseByNameWeb).isDisplayed();
+    }
+    public void clickEditCourseButton() {
+        getElement(editCourseNative, editCourseWeb).click();
+    }
+    public void clickSaveCourseButton() {
+        getElement(saveCourseButtonNative, saveCourseButtonWeb).click();
     }
     public void clickBurgerMenuButton() {
         getElement(burgerMenuButtonNative, burgerMenuButtonWeb).click();
+    }
+    public  void clickLogoutButton() {
+        getElement(logoutButtonNative, logoutButtonWeb).click();
     }
 }
