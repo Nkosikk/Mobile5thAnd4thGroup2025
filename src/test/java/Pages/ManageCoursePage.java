@@ -24,16 +24,16 @@ public class ManageCoursePage {
     }
 
     private By manageCoursesTitleNative = By.xpath("//android.view.View[@content-desc='Manage Courses']");
-    //private By manageCoursesTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
+    private By manageCoursesTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
     private By testerAnalystCourseCardNative = By.xpath("//android.view.View[contains(@content-desc,'Tester Analyst Course')]");
-    //private By testerAnalystCourseCardWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]");
+    private By testerAnalystCourseCardWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]");
 
     private By burgerMenuButtonNative = By.className("android.widget.Button");
-    //private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
+    private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
 
     private By logoutButtonNative = By.xpath("//android.widget.Button[@content-desc='Logout']");
-    //private By logoutButtonWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/button/span[2]");
+    private By logoutButtonWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/button/span[2]");
 
 
      // Implement methods to interact with the manage course page elements here
@@ -49,12 +49,12 @@ public class ManageCoursePage {
         }
     }
     public void getManageCoursesTitle() {
-        getElement(manageCoursesTitleNative, null).isDisplayed();
+        getElement(manageCoursesTitleNative, manageCoursesTitleWeb).isDisplayed();
     }
     public void verifyTesterAnalystCourseCard() {
-        getElement(testerAnalystCourseCardNative, null).isDisplayed();
+        getElement(testerAnalystCourseCardNative, testerAnalystCourseCardWeb).isDisplayed();
     }
     public void clickBurgerMenuButton() {
-        getElement(burgerMenuButtonNative, null).click();
+        getElement(burgerMenuButtonNative, burgerMenuButtonWeb).click();
     }
 }

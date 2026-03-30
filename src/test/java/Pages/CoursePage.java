@@ -22,34 +22,34 @@ public class CoursePage {
      // Define locators and methods for interacting with the course page here
 
     private By createNewCourseButtonNative = By.xpath("//android.widget.Button[@content-desc='+ Create New Course']");
-    //private By createNewCourseButtonWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[1]/a");
+    private By createNewCourseButtonWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[1]/a");
 
     private By courseTitleInputNative = By.xpath("//android.widget.EditText[@hint='Course Title *']");
-    //private By courseTitleInputWeb = By.xpath("//*[@id='course-title']");
+    private By courseTitleInputWeb = By.xpath("//*[@id='course-title']");
 
     private By descriptionInputNative = By.xpath("//android.widget.EditText[@hint='Description *']");
-    //private By descriptionInputWeb = By.xpath("//*[@id='course-description']");
+    private By descriptionInputWeb = By.xpath("//*[@id='course-description']");
 
     private By durationInputNative = By.xpath("//android.widget.EditText[@hint='Duration']");
-    //private By durationInputWeb = By.xpath("//*[@id='course-duration']");
+    private By durationInputWeb = By.xpath("//*[@id='course-duration']");
 
     private By priceInputNative = By.xpath("//android.widget.EditText[@hint='Price (R)']");
-    //private By priceInputWeb = By.xpath("//*[@id='course-price']");
+    private By priceInputWeb = By.xpath("//*[@id='course-price']");
 
     private By thumbnailUrlInputNative = By.xpath("//android.widget.EditText[@hint='Thumbnail URL (optional)']");
-    //private By thumbnailUrlInputWeb = By.xpath("//*[@id='course-thumbnail']");
+    private By thumbnailUrlInputWeb = By.xpath("//*[@id='course-thumbnail']");
 
     private By meetingUrlInputNative = By.xpath("//android.widget.EditText[@hint='Meeting URL (optional)']");
-    //private By meetingUrlInputWeb = By.xpath("//*[@id='course-meeting-url']");
+    private By meetingUrlInputWeb = By.xpath("//*[@id='course-meeting-url']");
 
     private By publishedCheckboxNative = By.className("android.widget.CheckBox");
-    //private By publishedCheckboxWeb = By.xpath("//*[@id='course-published']");
+    private By publishedCheckboxWeb = By.xpath("//*[@id='course-published']");
 
     private By createCourseButtonNative = By.xpath("//android.widget.Button[@content-desc='Create Course']");
-    //private By createCourseButtonWeb = By.xpath("//*[@id='course-create']");
+    private By createCourseButtonWeb = By.xpath("//*[@id='course-create']");
 
     private By cancelButtonNative = By.xpath("//android.widget.Button[@content-desc='Cancel']");
-    //private By cancelButtonWeb = By.xpath("//*[@id='course-cancel']");
+    private By cancelButtonWeb = By.xpath("//*[@id='course-cancel']");
 
      // Implement methods to interact with the course page elements here
 

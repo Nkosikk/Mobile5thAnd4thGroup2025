@@ -23,22 +23,22 @@ public class AdminPage {
     }
 
     private By welcomeMessageNative = By.xpath("//android.view.View[@content-desc=\"Admin Dashboard\"]");
-    //private By welcomeMessageWeb
+    private By welcomeMessageWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
     private By burgerMenuButtonNative = By.className("android.widget.Button");
-    //private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
+    private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
 
     private By adminPanelOptionNative = By.xpath("//android.widget.Button[@content-desc=\"Admin Panel\"]");
-    //private By adminPanelOptionWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/div/a[1]");
+    private By adminPanelOptionWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/div/a[1]");
 
     private By adminDashboardTitleNative = By.xpath("//android.view.View[@content-desc='Admin Dashboard']");
-    //private By adminDashboardTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
+    private By adminDashboardTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
     private By adminPanelTitleNative = By.xpath("//android.view.View[@content-desc='Admin Panel']");
-    //private By adminPanelTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
+    private By adminPanelTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
     private By coursesButtonNative = By.xpath("//android.widget.Button[@content-desc='Courses']");
-    //private By coursesButtonWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[1]/a");
+    private By coursesButtonWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[1]/a");
 
         // Implement methods to interact with the admin page elements here
 
@@ -54,21 +54,21 @@ public class AdminPage {
     }
 
     public void getWelcomeMessage() {
-        getElement(welcomeMessageNative, null).isDisplayed();
+        getElement(welcomeMessageNative, welcomeMessageWeb).isDisplayed();
     }
     public void clickBurgerMenuButton() {
-        getElement(burgerMenuButtonNative, null).click();
+        getElement(burgerMenuButtonNative, burgerMenuButtonWeb).click();
     }
     public void clickAdminPanelOption() {
-        getElement(adminPanelOptionNative, null).click();
+        getElement(adminPanelOptionNative, adminPanelOptionWeb).click();
     }
     public void setAdminDashboardTitle() {
-        getElement(adminDashboardTitleNative, null).isDisplayed();
+        getElement(adminDashboardTitleNative, adminDashboardTitleWeb).isDisplayed();
     }
     public void setAdminPanelTitle() {
-        getElement(adminPanelTitleNative, null).isDisplayed();
+        getElement(adminPanelTitleNative, adminPanelTitleWeb).isDisplayed();
     }
     public void clickCoursesButton() {
-        getElement(coursesButtonNative, null).click();
+        getElement(coursesButtonNative, coursesButtonWeb).click();
     }
 }
