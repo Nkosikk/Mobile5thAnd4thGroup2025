@@ -1,5 +1,6 @@
 package Pages;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
@@ -29,7 +30,7 @@ public class AdminPage {
     private By burgerMenuButtonWeb = By.xpath("//*[@id='app-root']/nav/div[1]/button");
 
     private By adminPanelOptionNative = By.xpath("//android.widget.Button[@content-desc=\"Admin Panel\"]");
-    private By adminPanelOptionWeb = By.xpath("//*[@id='app-root']/nav/div[2]/div[5]/div/a[1]");
+    private By adminPanelOptionWeb = By.xpath("//*[@id=\"app-root\"]/nav/div[2]/div[5]/button[7]/span[2]");
 
     private By adminDashboardTitleNative = By.xpath("//android.view.View[@content-desc='Admin Dashboard']");
     private By adminDashboardTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
@@ -60,6 +61,13 @@ public class AdminPage {
         getElement(burgerMenuButtonNative, burgerMenuButtonWeb).click();
     }
     public void clickAdminPanelOption() {
+        String execType = config.getProperty("executionType").trim();
+        if (execType.equalsIgnoreCase("nativeApp")) {
+            //Scroll the native view until element with description "Admin Panel" is visible
+            driver.findElement(AppiumBy.androidUIAutomator(
+                    "new UiScrollable(new UiSelector().scrollable(true))" +
+                            ".scrollIntoView(new UiSelector().description(\"Admin Panel\"))"));
+        }
         getElement(adminPanelOptionNative, adminPanelOptionWeb).click();
     }
     public void getWelcomeMessageNative() {
