@@ -49,10 +49,10 @@ public class LoginTest extends BaseTest {
     @Test (dependsOnMethods = "verifyAdminPanelAccess")
     public void verifyAdminDashboard() throws InterruptedException {
         //This method is responsible for verifying that the user is on the admin dashboard by checking for the presence of a specific element on the page that indicates the user is on the admin dashboard.
-        adminPage.getWelcomeMessageNative();
+        adminPage.getAdminDashboardTitle();
         Thread.sleep(2000); // Adding a short wait to ensure the admin dashboard title is fully loaded before taking a screenshot
         ScreenshotUtils.captureScreenshot(driver, "Admin Dashboard Displayed");
-        adminPage.getAdminPanelTitle();
+        adminPage.clickAdminBurgerMenu();
         Thread.sleep(2000); // Adding a short wait to ensure the admin panel title is fully loaded before taking a screenshot
         ScreenshotUtils.captureScreenshot(driver, "Admin Panel Title Displayed");
         adminPage.clickCoursesButton();

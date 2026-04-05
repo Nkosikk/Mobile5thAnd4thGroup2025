@@ -36,7 +36,7 @@ public class CoursePage {
     private By levelDropdownNative = By.xpath("//android.widget.Button[contains(@content-desc,'Level')]");
     private By levelDropdownWeb = By.xpath("//*[@id='course-level']");
 
-    private By priceInputNative = By.xpath("//android.widget.EditText[@hint='Price (R)']");
+    private By priceInputNative = By.xpath("//android.widget.EditText[contains(@text,'Price')]");
     private By priceInputWeb = By.xpath("//*[@id='course-price']");
 
     /*private By thumbnailUrlInputNative = By.xpath("//android.widget.EditText[@hint='Thumbnail URL (optional)']");
@@ -94,7 +94,7 @@ public class CoursePage {
     }
     public void enterPrice(String price) {
         WebElement priceInput = getElement(priceInputNative, priceInputWeb);
-        priceInput.click();
+        priceInput.clear();
         priceInput.sendKeys(price);
     }
     /*public void enterThumbnailUrl(String thumbnailUrl) {

@@ -35,8 +35,8 @@ public class AdminPage {
     private By adminDashboardTitleNative = By.xpath("//android.view.View[@content-desc='Admin Dashboard']");
     private By adminDashboardTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
-    private By adminPanelTitleNative = By.xpath("//android.view.View[@content-desc='Admin Panel']");
-    private By adminPanelTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
+    private By adminPanelBurgerMenuNative = By.xpath("//android.widget.ScrollView/android.view.View[1]");
+    private By adminPanelBuergerMenuWeb= By.xpath("//*[@id=\"app-root\"]/div/button");
 
     private By coursesButtonNative = By.xpath("//android.widget.Button[@content-desc='Courses']");
     private By coursesButtonWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[1]/a");
@@ -70,11 +70,11 @@ public class AdminPage {
         }
         getElement(adminPanelOptionNative, adminPanelOptionWeb).click();
     }
-    public void getWelcomeMessageNative() {
+    public void getAdminDashboardTitle() {
         getElement(adminDashboardTitleNative, adminDashboardTitleWeb).isDisplayed();
     }
-    public void getAdminPanelTitle() {
-        getElement(adminPanelTitleNative, adminPanelTitleWeb).isDisplayed();
+    public void clickAdminBurgerMenu() {
+        getElement(adminPanelBurgerMenuNative, adminPanelBuergerMenuWeb).click();
     }
     public void clickCoursesButton() {
         getElement(coursesButtonNative, coursesButtonWeb).click();
