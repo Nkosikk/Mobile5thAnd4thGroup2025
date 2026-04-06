@@ -6,6 +6,7 @@ import Pages.CourseManagementPage;
 import Pages.LoginPage;
 import Utilities.DriverFactory;
 import io.appium.java_client.AppiumDriver;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,8 +24,8 @@ public class BaseTest {
     protected AdminPanelPage adminPanelPage;
     protected AdminDashboardPage adminDashboardPage;
     protected CourseManagementPage courseManagementPage;
-    
 
+    @BeforeMethod
     public void setUp() throws IOException {
         //loading the config.properties file to read the configuration values for the test execution.
         config = new Properties();
@@ -36,10 +37,10 @@ public class BaseTest {
         driver = DriverFactory.getDriver();
 
         //Initialise the LoginPage object here if you want to use it in the tests.
-        loginPage = new LoginPage(driver,config);
-        adminPanelPage = new AdminPanelPage(driver,config);
-        adminDashboardPage = new AdminDashboardPage(driver,config);
-        courseManagementPage = new CourseManagementPage(driver,config);
+        loginPage = new LoginPage(driver, config);
+        adminPanelPage = new AdminPanelPage(driver, config);
+        adminDashboardPage = new AdminDashboardPage(driver, config);
+        courseManagementPage = new CourseManagementPage(driver, config);
 
     }
 

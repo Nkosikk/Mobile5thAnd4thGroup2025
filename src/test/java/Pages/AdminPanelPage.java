@@ -26,6 +26,7 @@ public class AdminPanelPage {
 
     private By adminDashburgerMenuButtonNative = By.xpath("//android.view.View[.//android.view.View[@content-desc='Admin Dashboard']]//android.widget.Button");
     private By adminDashburgerMenuButtonWeb = By.xpath("//android.widget.Button[@clickable='true'][1]"); // or your real web locator
+
     private By adminPortalButtonNative = By.xpath("//android.widget.Button[@content-desc='Admin Panel']");
     private By adminPortalButtonWeb = By.id("admin-panel");
 

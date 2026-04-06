@@ -2,16 +2,38 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
+        <listener class-name="ExtentReports.ExtentReportsListener">
+        </listener>
         <listener class-name="Listener.TestListener">
 
         </listener>
     </listeners>
     <test name="Ndosi Login Test">
         <classes>
+
             <class name="Tests.LoginTest">
                 <methods>
                     <include name="SetUp"/>
                     <include name="LoginWithValidCredentials"/>
+
+                </methods>
+            </class>
+            <class name="Tests.SelectAdminPanelTest">
+                <methods>
+                    <include name="SetUp"/>
+                    <include name="PerformAdminDashboardFunctions"/>
+                </methods>
+            </class>
+            <class name="Tests.AdminDashboardTest">
+                <methods>
+                    <include name="SetUp"/>
+                    <include name="PerformActionsOnAdminDashboard"/>
+                </methods>
+            </class>
+            <class name="Tests.AddCourseTest">
+                <methods>
+                    <include name="SetUp"/>
+                    <include name="PerformActionsToAddTheCourse"/>
                     <include name="quitDriver"/>
                 </methods>
             </class>

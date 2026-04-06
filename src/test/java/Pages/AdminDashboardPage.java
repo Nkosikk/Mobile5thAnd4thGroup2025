@@ -44,13 +44,14 @@ public class AdminDashboardPage {
             throw new RuntimeException("Unsupported executionType: " + execType);
         }
     }
-        public void clickBurgerMenuAdminPanel() {
-            getElement(adminDashBurgerMenuNative, adminDashBurgerMenuWeb).click();
-        }
 
-        public void clickOnCourses(){
-        getElement(coursesNative, coursesWeb).click();
-        }
-
+    public void clickBurgerMenuAdminPanel() {
+        getElement(adminDashBurgerMenuNative, adminDashBurgerMenuWeb).click();
     }
+
+    public void clickOnCourses() {
+        getElement(coursesNative, coursesWeb).click();
+    }
+
+}
 
