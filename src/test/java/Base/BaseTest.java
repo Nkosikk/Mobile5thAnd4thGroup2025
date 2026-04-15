@@ -1,9 +1,6 @@
 package Base;
 
-import Pages.AdminDashboardPage;
-import Pages.AdminPanelPage;
-import Pages.CourseManagementPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utilities.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.BeforeMethod;
@@ -24,6 +21,7 @@ public class BaseTest {
     protected AdminPanelPage adminPanelPage;
     protected AdminDashboardPage adminDashboardPage;
     protected CourseManagementPage courseManagementPage;
+    protected LogoutPage logoutPage;
 
     @BeforeMethod
     public void setUp() throws IOException {
@@ -41,6 +39,7 @@ public class BaseTest {
         adminPanelPage = new AdminPanelPage(driver, config);
         adminDashboardPage = new AdminDashboardPage(driver, config);
         courseManagementPage = new CourseManagementPage(driver, config);
+        logoutPage = new LogoutPage(driver, config);
 
     }
 

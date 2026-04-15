@@ -4,8 +4,6 @@ import Base.BaseTest;
 import Utilities.ScreenshotUtils;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class AdminDashboardTest extends BaseTest {
     @Test(dependsOnMethods = "PerformAdminDashboardFunctions")
     public void PerformActionsOnAdminDashboard() {

@@ -1,7 +1,10 @@
-package Pages;
+ package Pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -88,25 +91,62 @@ public class CourseManagementPage {
         titleField.click();
         titleField.clear();
         titleField.sendKeys("R600");
+        driver.navigate().back();
+    }
+   /*public void hideKeyboard() {
+        try {
+            ((AndroidDriver) driver).hideKeyboard();
+        } catch (Exception e1) {
+            try {
+                ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+            } catch (Exception e2) {
+                // keyboard likely already closed
+            }
+        }
+        }
+
+        public void selectCreateCourse () {
+            hideKeyboard();
+            getElement(createCourseBtnNative, createCourseBtnWeb).click();
+        }*/
+
+    public void hideKeyboard() {
+        try {
+            ((AndroidDriver) driver).hideKeyboard();
+        } catch (Exception e1) {
+            try {
+                ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
+            } catch (Exception e2) {
+                // keyboard likely already closed or BACK did nothing
+            }
+        }
     }
 
     public void selectCreateCourse() {
+        hideKeyboard();
+
+        try {
+            Thread.sleep(500); // allows keyboard animation to finish
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         getElement(createCourseBtnNative, createCourseBtnWeb).click();
     }
 
 
-    public boolean CourseCreated() {
-        String TestKB = "";
-        By createdCourseNative = AppiumBy.xpath("//android.widget.TextView[@text='" + TestKB + "']");
-        By createdCourseWeb = By.xpath("//*[text()='" + TestKB + "']");
 
-        try {
-            WebElement course = getElement(createdCourseNative, createdCourseWeb);
-            return course.isDisplayed();
-        } catch (Exception e) {
-            return false;
+        public String getSuccessMessage () {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            WebElement message = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.accessibilityId("Course created.")
+                    )
+            );
+            System.out.println(driver.getPageSource());
+
+            return message.getAttribute("content-desc");
         }
+
     }
-
-}
-

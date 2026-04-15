@@ -1,10 +1,8 @@
 package Tests;
-
 import Base.BaseTest;
 import Utilities.ScreenshotUtils;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class AddCourseTest extends BaseTest {
 
@@ -26,19 +24,24 @@ public class AddCourseTest extends BaseTest {
         courseManagementPage.enterCoursePrice();
         ScreenshotUtils.captureScreenshot(driver, "Enter Course Price");
 
+
         courseManagementPage.selectCreateCourse();
         ScreenshotUtils.captureScreenshot(driver, "Select Create Course Button");
         System.out.println(driver.getPageSource());
 
-        courseManagementPage.CourseCreated();
-        ScreenshotUtils.captureScreenshot(driver, "Verify that course was successfully created");
-        System.out.println(driver.getPageSource());
-    }
 
-    @Test(dependsOnMethods = "PerformActionsToAddTheCourse")
+        String actualMessage = courseManagementPage.getSuccessMessage();
+        String expectedMessage = "Course created.";
+
+        assertEquals(actualMessage, expectedMessage);
+
+        System.out.println("Message displayed: " + actualMessage);
+
+    }
+   /* @Test(dependsOnMethods = "PerformActionsToAddTheCourse")
     public void quitDriver() {
         //This method is responsible for cleaning up after the test execution. It quits the driver session.
         super.tearDown();
-    }
+    }*/
 
 }
