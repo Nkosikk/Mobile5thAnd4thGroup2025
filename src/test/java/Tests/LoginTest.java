@@ -27,6 +27,7 @@ public class LoginTest extends BaseTest {
         ScreenshotUtils.captureScreenshot(driver, "Password Entered");
         loginPage.clickLoginButton();
         ScreenshotUtils.captureScreenshot(driver, "Login Submitted");
+        Thread.sleep(3000);
     }
 
     @Test(dependsOnMethods = "LoginWithValidCredentials")
