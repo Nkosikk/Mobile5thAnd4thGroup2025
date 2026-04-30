@@ -40,6 +40,7 @@ public class LoginPage {
     private By loginButtonWeb = By.id("login-submit");
 
 
+
     private WebElement getElement(By nativeLocator, By webLocator) {
         String execType = config.getProperty("executionType").trim();
         if (execType.equalsIgnoreCase("nativeApp")) {
@@ -73,6 +74,7 @@ public class LoginPage {
 
     public void clickLoginButton() {
         getElement(loginButtonNative, loginButtonWeb).click();
+
     }
 
 }
