@@ -15,11 +15,12 @@ public class LogoutTest extends BaseTest {
         setUp();
     }
     @Test(dependsOnMethods = "SetUp" )
-    public void SuccessfullLogout (){
+    public void SuccessfullLogout () throws InterruptedException {
         logoutPage.clickBurgerMenuButtonOnAdminDashboard1();
         ScreenshotUtils.captureScreenshot(driver, "Burger Menu Selected successfully");
         logoutPage.selectLogoutButton();
         ScreenshotUtils.captureScreenshot(driver, "Logged out successfully");
+        Thread.sleep(20);
 
     }
 
