@@ -26,7 +26,14 @@ public class ManageCoursePage {
     private By manageCoursesTitleNative = By.xpath("//android.view.View[@content-desc='Manage Courses']");
     private By manageCoursesTitleWeb = By.xpath("//*[@id='app-root']/div/main/div/div[1]/h1");
 
-    private By selectCourseByNameNative = By.xpath("//android.view.View[contains(@content-desc,'Tester Analyst Course')]");
+    private By selectCourseByNameNative = By.xpath("//android.view.View[@content-desc=\"Test Course Title\n" +
+            "Published\n" +
+            "This is a test course description.\n" +
+            "Beginner\n" +
+            "60\n" +
+            "R 600.00\n" +
+            "0 enrollments\n" +
+            "09/04/2026\"]");
     private By selectCourseByNameWeb = By.xpath("//*[@id='app-root']/div/main/div/div[2]/div[1]/div[2]/div[1]");
 
     private By editCourseNative = By.xpath("(//android.widget.Button[@content-desc='Edit'])[1]");

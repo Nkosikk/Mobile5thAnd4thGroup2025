@@ -37,7 +37,7 @@ public class CoursePage {
             "Beginner\"]");
     private By levelDropdownWeb = By.xpath("//*[@id='course-level']");
 
-    private By priceInputNative = By.xpath("//android.widget.EditText[@text=\"0\"]");
+    private By priceInputNative = By.xpath("//android.widget.EditText[@hint='Price (R)']");
     private By priceInputWeb = By.xpath("//*[@id='course-price']");
 
     /*private By thumbnailUrlInputNative = By.xpath("//android.widget.EditText[@hint='Thumbnail URL (optional)']");
